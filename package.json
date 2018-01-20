@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "url": "git@github.com:Dzheky/Ptf.git",
   "dependencies": {
     "d3": "^4.12.2",
     "react": "^16.2.0",
