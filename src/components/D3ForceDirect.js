@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
-class App extends Component {
+class D3ForceDirect extends Component {
 	componentDidMount() {
 		this.svg = d3.select('.forcenet')
 			.append('svg')
@@ -18,4 +18,4 @@ class App extends Component {
 	}
 }
 
-export default App
+export default D3ForceDirect

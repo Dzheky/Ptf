@@ -12,6 +12,8 @@ html, body, #root {
 
   width: 100%;
   height: 100%;
+
+  transition: opacity 0.3s ease-in-out;
 }
 
 .redSquare {
@@ -48,8 +50,10 @@ html, body, #root {
   color: #FCAF32;
 }
 
-.forcenet {
+.blueSquare {
   position: absolute;
+  display: flex;
+  align-items: flex-end;
   background-color: #14213D;
   width: 30vw;
   height: 50.5vh;
@@ -60,6 +64,7 @@ html, body, #root {
 
 .name {
   font-family: 'Poppins', sans-serif;
+  margin-bottom: 8vh;
   margin-left: 10vw;
   font-size: 5vw;
   font-weight: 900;
