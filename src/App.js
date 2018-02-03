@@ -4,13 +4,13 @@ import createHistory from 'history/createBrowserHistory'
 import { AnimatedRoute } from 'react-router-transition'
 import Info from './containers/Info/Info'
 import Main from './containers/Main/Main'
-import './App.css'
+import styles from './App.css'
 
 const history = createHistory()
 
 const App = () => (
 	<Router history={history}>
-		<div className="container">
+		<div className={styles.container}>
 			<AnimatedRoute
 				path="/"
 				component={Main}
@@ -18,9 +18,9 @@ const App = () => (
 				atLeave={{ opacity: 0, transform: -100 }}
 				atEnter={{ opacity: 0, transform: -100 }}
 				atActive={{ opacity: 1, transform: 0 }}
-				mapStyles={styles => ({
-					opacity: styles.opacity,
-					transform: `translateY(${styles.transform}vh)`,
+				mapStyles={style => ({
+					opacity: style.opacity,
+					transform: `translateY(${style.transform}vh)`,
 				})}
 			/>
 			<Route path="/info" component={Info} />

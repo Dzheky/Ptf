@@ -1,9 +1,14 @@
+// @flow
 import React, { Component } from 'react'
 import debounce from 'lodash/debounce'
 import arrow from '../../imgs/arrow_down.png'
 import styles from './Main.css'
 
-class Main extends Component {
+type MainProps = {
+	history: Object,
+}
+
+class Main extends Component<MainProps> {
 	componentDidMount() {
 		this.redirecting = false
 		document.addEventListener('mousewheel', this.handleScroll)
@@ -37,19 +42,19 @@ class Main extends Component {
 
 	render() {
 		return (
-			<div className="App">
-				<div className="blueSquare">
-					<div className="name">
+			<div className={styles.App}>
+				<div className={styles.blueSquare}>
+					<div className={styles.name}>
 						EVGENY
 					</div>
 				</div>
-				<div className="redSquare">
-					<div className="lastName">
+				<div className={styles.redSquare}>
+					<div className={styles.lastName}>
 						KLIMENCHENKO
 					</div>
 				</div>
-				<div className="yellowSquare" />
-				<img className="arrowDown" src={arrow} alt="Scroll Down" />
+				<div className={styles.yellowSquare} />
+				<img className={styles.arrowDown} src={arrow} alt="Scroll Down" />
 			</div>
 		)
 	}
