@@ -1,0 +1,113 @@
+@keyframes blueSquare {
+    from {
+        opacity: 0;
+        transform: translateX(-20vw);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes yellowSquare {
+    from {
+        opacity: 0;
+        transform: translateY(20vh);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes redSquare {
+    from {
+        opacity: 0;
+        transform: translateX(40vw);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    width: 100%;
+    height: 100%;
+  
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+.redSquare {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 30vw;
+    top: 35vh;
+
+    width: 45vw;
+    height: 35vh;
+
+    animation-name: redSquare;
+    animation-duration: 0.5s;
+    background-color: #af3838;
+}
+
+.yellowSquare {
+    position: absolute;
+    top: 62.5vh;
+    left: 15vw;
+
+    width: 15vw;
+    height: 15vh;
+
+    animation-name: yellowSquare;
+    animation-duration: 0.5s;
+    background-color: #FCAF32;
+}
+
+.lastName {
+    margin-left: -0.3vw;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 5vw;
+    font-weight: 900;
+
+    color: #FCAF32;
+}
+
+.blueSquare {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    background-color: #14213D;
+    animation-name: blueSquare;
+    animation-duration: 0.5s;
+    width: 30vw;
+    height: 50.5vh;
+    top: 12vh;
+    left: 0;
+    z-index: 0;
+}
+
+.name {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 8vh;
+    margin-left: 10vw;
+    font-size: 5vw;
+    font-weight: 900;
+    z-index: 1;
+
+    color: #FCAF32;
+}
+
+.arrowDown {
+    position: absolute;
+    width: 50px;
+    align-self: center;
+    top: 95vh;
+}

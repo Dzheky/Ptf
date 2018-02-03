@@ -5,6 +5,8 @@
   "url": "https://github.com/Dzheky/Ptf",
   "dependencies": {
     "d3": "^4.12.2",
+    "history": "^4.7.2",
+    "lodash": "^4.17.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
@@ -16,5 +18,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-watch": "^3.1.3"
   }
 }
