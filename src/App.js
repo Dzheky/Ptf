@@ -8,19 +8,35 @@ import styles from './App.css'
 
 const history = createHistory()
 
+const animationStart = {
+	opacity: 0,
+	transform: -100,
+	height: 100,
+}
+
+const animationFinish = {
+	opacity: 1,
+	transform: 0,
+	height: 0,
+}
+
 const App = () => (
 	<Router history={history}>
 		<div className={styles.container}>
 			<AnimatedRoute
 				path="/"
 				component={Main}
+				className={styles.mainContainer}
 				exact
-				atLeave={{ opacity: 0, transform: -100 }}
-				atEnter={{ opacity: 0, transform: -100 }}
-				atActive={{ opacity: 1, transform: 0 }}
+				atLeave={animationStart}
+				atEnter={animationStart}
+				atActive={animationFinish}
 				mapStyles={style => ({
+					position: 'absolute',
 					opacity: style.opacity,
 					transform: `translateY(${style.transform}vh)`,
+					height: '100%',
+					width: '100%',
 				})}
 			/>
 			<Route path="/info" component={Info} />

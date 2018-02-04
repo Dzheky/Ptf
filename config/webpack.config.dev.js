@@ -159,13 +159,13 @@ module.exports = {
           {
             test: /\.css$/,
             use: [
-              require.resolve('style-loader'),
+              'style-loader',
               {
-                loader: require.resolve('css-loader'),
+                loader: 'css-loader',
                 options: {
                   importLoaders: 1,
                   modules: true,
-                  localIdentname: "[name]__[local]__[hash:base64:5]",
+                  localIdentName: "[name]__[local]___[hash:base64:5]",
                 },
               },
               {

@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600,700');
-
-html, body, #root {
-  height: 100%;
-  background-color: #E5E5E5;
-}
-
 .container {
   width: 100%;
   height: 100%;
+}
+
+.mainContainer {
+  composes: container;
+
+  position: absolute;
+  top: 0;
+  left: 0;
 }

@@ -109,5 +109,5 @@
     position: absolute;
     width: 50px;
     align-self: center;
-    top: 95vh;
+    bottom: 0;
 }
