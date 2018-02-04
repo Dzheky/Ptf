@@ -1,46 +1,54 @@
 // @flow
 import React, { Component } from 'react'
-import debounce from 'lodash/debounce'
+import { Link, History } from 'react-router-dom'
 import arrow from '../../imgs/arrow_down.png'
 import styles from './Main.css'
 
-type MainProps = {
-	history: Object,
+type MainPropsType = {
+	history: History,
 }
 
-class Main extends Component<MainProps> {
+class Main extends Component<MainPropsType> {
 	componentDidMount() {
-		this.redirecting = false
-		document.addEventListener('mousewheel', this.handleScroll)
+		document.addEventListener('wheel', this.handleScroll)
 		document.addEventListener('touchstart', this.startTouch)
 		document.addEventListener('touchend', this.endTouch)
 	}
 
 	componentWillUnmount() {
-		document.removeEventListener('mousewheel', this.handleScroll)
+		document.removeEventListener('wheel', this.handleScroll)
 		document.removeEventListener('touchstart', this.startTouch)
 		document.removeEventListener('touchend', this.endTouch)
+		clearTimeout(this.timer)
 	}
 
-	startTouch = (e) => {
+	timer: TimeoutID
+	start: number
+	routing: boolean
+
+	startTouch = (e: TouchEvent) => {
 		this.start = e.changedTouches[0].clientY
 	}
 
-	endTouch = (e) => {
+	endTouch = (e: TouchEvent) => {
 		if ((this.start - e.changedTouches[0].clientY) > 150) {
 			this.props.history.push('/info')
 		}
 	}
 
-	handleScroll = debounce((e) => {
+	handleScroll = (e: WheelEvent) => {
 		const { deltaY } = e
 
-		if (deltaY > 5) {
+		if (deltaY > 5 && !this.routing) {
+			this.routing = true
 			this.props.history.push('/info')
+			this.timer = setTimeout(() => {
+				this.routing = false
+			}, 500)
 		}
-	}, 50)
+	}
 
-	render() {
+	render(): React$Element<*> {
 		return (
 			<div className={styles.App}>
 				<div className={styles.blueSquare}>
@@ -54,7 +62,9 @@ class Main extends Component<MainProps> {
 					</div>
 				</div>
 				<div className={styles.yellowSquare} />
-				<img className={styles.arrowDown} src={arrow} alt="Scroll Down" />
+				<Link to="/info" className={styles.arrowDownContainer}>
+					<img className={styles.arrowDown} src={arrow} alt="Scroll Down" />
+				</Link>
 			</div>
 		)
 	}

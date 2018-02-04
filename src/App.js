@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import { Router, Route } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
@@ -7,6 +8,14 @@ import Main from './containers/Main/Main'
 import styles from './App.css'
 
 const history = createHistory()
+
+type MapStyleReturnType = {
+	position: string,
+	opacity: number,
+	transform: string,
+	height: string,
+	width: string,
+}
 
 const animationStart = {
 	opacity: 0,
@@ -20,7 +29,7 @@ const animationFinish = {
 	height: 0,
 }
 
-const App = () => (
+const App = (): React$Element<*> => (
 	<Router history={history}>
 		<div className={styles.container}>
 			<AnimatedRoute
@@ -31,7 +40,7 @@ const App = () => (
 				atLeave={animationStart}
 				atEnter={animationStart}
 				atActive={animationFinish}
-				mapStyles={style => ({
+				mapStyles={(style: typeof animationStart): MapStyleReturnType => ({
 					position: 'absolute',
 					opacity: style.opacity,
 					transform: `translateY(${style.transform}vh)`,

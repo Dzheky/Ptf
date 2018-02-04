@@ -105,9 +105,12 @@
     color: #FCAF32;
 }
 
-.arrowDown {
+.arrowDownContainer {
     position: absolute;
-    width: 50px;
     align-self: center;
     bottom: 0;
+}
+
+.arrowDown {
+    width: 50px;
 }
