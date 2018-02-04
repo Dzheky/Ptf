@@ -31,10 +31,38 @@
     }
 }
 
+@keyframes firstArrow {
+    0% {opacity:0}
+    20% {opacity:1}
+    40% {opacity:0}
+    80% {opacity:0}
+    100% {opacity:0}
+}
+
+@keyframes secondArrow {
+    0% {opacity:0}
+    20% {opacity:0}
+    40% {opacity:1}
+    80% {opacity:0}
+    100% {opacity:0}
+}
+
+@keyframes thirdArrow {
+     0% {opacity:0}
+    20% {opacity:0}
+    40% {opacity:0}
+    80% {opacity:1}
+    100% {opacity:0}
+}
+
 .App {
+    --blue: #14213D;
+    --yellow: #FCAF32;
+    --red: #af3838;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+    overflow: hidden;
   
     width: 100%;
     height: 100%;
@@ -54,7 +82,7 @@
 
     animation-name: redSquare;
     animation-duration: 0.5s;
-    background-color: #af3838;
+    background-color: var(--red);
 }
 
 .yellowSquare {
@@ -67,7 +95,7 @@
 
     animation-name: yellowSquare;
     animation-duration: 0.5s;
-    background-color: #FCAF32;
+    background-color: var(--yellow);
 }
 
 .lastName {
@@ -77,14 +105,14 @@
     font-size: 5vw;
     font-weight: 900;
 
-    color: #FCAF32;
+    color: var(--yellow);
 }
 
 .blueSquare {
     position: absolute;
     display: flex;
     align-items: flex-end;
-    background-color: #14213D;
+    background-color: var(--blue);
     animation-name: blueSquare;
     animation-duration: 0.5s;
     width: 30vw;
@@ -106,11 +134,99 @@
 }
 
 .arrowDownContainer {
-    position: absolute;
-    align-self: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 86px;
     bottom: 0;
 }
 
+.arrowSVG {
+    width: 64px;
+    stroke-linecap: round;
+}
+
 .arrowDown {
-    width: 50px;
+    stroke: var(--blue);
+	fill: transparent;
+	stroke-width: 1px;	
+	animation: firstArrow 2s infinite;
+
+    &.secondArrow {
+        margin-top: -10px;
+        stroke: var(--yellow);
+        animation-delay: 0.7s;
+        stroke-width: 2px;
+        animation: secondArrow 2s infinite;
+    }
+
+    &.thirdArrow {
+        margin-top: -20px;
+        stroke: var(--red);
+        animation-delay: 1.4s;
+        stroke-width: 3px;
+        animation: thirdArrow 2s infinite;
+    }
+}
+
+@media screen and (max-width: 900px) and (min-width: 601px) {
+    .name {
+        font-size: 7vw;
+        margin-bottom: 8vh;
+        margin-left: 2vw;
+    }
+
+    .lastName {
+        font-size: 7vw;
+    }
+
+    .redSquare {
+        width: 58vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .name {
+        font-size: 9vh;
+        user-select: none;
+        width: 23vw;
+        margin: 0;
+        margin-top: -3vh;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        line-height: 1.3;
+        letter-spacing: -3vh;
+        align-self: center;
+    }
+
+    .lastName {
+        font-size: 18vw;
+        user-select: none;
+        align-self: flex-start;
+        padding: 1vh;
+        overflow-wrap: break-word;
+        line-height: 0.9;
+        overflow: hidden;
+    }
+    
+    .blueSquare {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        top: 5vh;
+        height: 60vh;
+    }
+
+    .redSquare {
+        height: 67vw;
+        width: 49vw;
+    }
+
+    .yellowSquare {
+        top: 50vh;
+        z-index: -1;
+        width: 40vw;
+        height: 32vh;
+    }
 }

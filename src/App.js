@@ -15,6 +15,7 @@ type MapStyleReturnType = {
 	transform: string,
 	height: string,
 	width: string,
+	overflow: string,
 }
 
 const animationStart = {
@@ -46,6 +47,7 @@ const App = (): React$Element<*> => (
 					transform: `translateY(${style.transform}vh)`,
 					height: '100%',
 					width: '100%',
+					overflow: 'hidden',
 				})}
 			/>
 			<Route path="/info" component={Info} />

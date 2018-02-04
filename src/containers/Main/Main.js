@@ -1,8 +1,10 @@
 // @flow
 import React, { Component } from 'react'
+import classnames from 'classnames/bind'
 import { Link, History } from 'react-router-dom'
-import arrow from '../../imgs/arrow_down.png'
 import styles from './Main.css'
+
+const cx = classnames.bind(styles)
 
 type MainPropsType = {
 	history: History,
@@ -63,7 +65,11 @@ class Main extends Component<MainPropsType> {
 				</div>
 				<div className={styles.yellowSquare} />
 				<Link to="/info" className={styles.arrowDownContainer}>
-					<img className={styles.arrowDown} src={arrow} alt="Scroll Down" />
+					<svg className={styles.arrowSVG}>
+						<path className={cx('arrowDown', 'firstArrow')} d="M2 2 L32 34 L62 2" />
+						<path className={cx('arrowDown', 'secondArrow')} d="M2 22 L32 54 L62 22" />
+						<path className={cx('arrowDown', 'thirdArrow')} d="M2 42 L32 74 L62 42" />
+					</svg>
 				</Link>
 			</div>
 		)
