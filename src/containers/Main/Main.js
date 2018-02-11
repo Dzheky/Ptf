@@ -5,22 +5,33 @@ import { Link, History } from 'react-router-dom'
 import styles from './Main.css'
 
 const cx = classnames.bind(styles)
+const BLUE_ALPHA = 0.1
+const RED_ALPHA = 0.2
+const YELLOW_ALPHA = 0.3
+
+const MAX = 30
 
 type MainPropsType = {
 	history: History,
 }
 
-class Main extends Component<MainPropsType> {
+class Main extends Component<MainPropsType, *> {
+	state = {
+		beta: 0,
+	}
+
 	componentDidMount() {
 		document.addEventListener('wheel', this.handleScroll)
 		document.addEventListener('touchstart', this.startTouch)
 		document.addEventListener('touchend', this.endTouch)
+		window.addEventListener('deviceorientation', this.handleOrientation)
 	}
 
 	componentWillUnmount() {
 		document.removeEventListener('wheel', this.handleScroll)
 		document.removeEventListener('touchstart', this.startTouch)
 		document.removeEventListener('touchend', this.endTouch)
+		window.removeEventListener('deviceorientation', this.handleOrientation)
 		clearTimeout(this.timer)
 	}
 
@@ -30,6 +41,18 @@ class Main extends Component<MainPropsType> {
 
 	startTouch = (e: TouchEvent) => {
 		this.start = e.changedTouches[0].clientY
+	}
+
+	handleOrientation = (e: Event) => {
+		let y = e.beta === null ? 0 : e.beta - 25
+
+		if (y > MAX || y < -MAX) {
+			y = y > MAX ? MAX : -MAX
+		}
+
+		this.setState({
+			beta: y,
+		})
 	}
 
 	endTouch = (e: TouchEvent) => {
@@ -51,19 +74,21 @@ class Main extends Component<MainPropsType> {
 	}
 
 	render(): React$Element<*> {
+		const { beta } = this.state
+
 		return (
 			<div className={styles.App}>
-				<div className={styles.blueSquare}>
+				<div className={styles.blueSquare} style={{ top: `${5 + (BLUE_ALPHA * beta)}vh` }}>
 					<div className={styles.name}>
 						EVGENY
 					</div>
 				</div>
-				<div className={styles.redSquare}>
+				<div className={styles.redSquare} style={{ top: `${35 + (RED_ALPHA * beta)}vh` }}>
 					<div className={styles.lastName}>
 						KLIMENCHENKO
 					</div>
 				</div>
-				<div className={styles.yellowSquare} />
+				<div className={styles.yellowSquare} style={{ top: `${50 + (YELLOW_ALPHA * beta)}vh` }} />
 				<Link to="/info" className={styles.arrowDownContainer}>
 					<svg className={styles.arrowSVG}>
 						<path className={cx('arrowDown', 'firstArrow')} d="M2 2 L32 34 L62 2" />

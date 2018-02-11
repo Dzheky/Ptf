@@ -76,6 +76,7 @@
     align-items: center;
     left: 30vw;
     top: 35vh;
+    z-index: 2;
 
     width: 45vw;
     height: 35vh;
@@ -87,11 +88,11 @@
 
 .yellowSquare {
     position: absolute;
-    top: 62.5vh;
+    top: 52.5vh;
     left: 15vw;
 
-    width: 15vw;
-    height: 15vh;
+    width: 35vw;
+    height: 30vh;
 
     animation-name: yellowSquare;
     animation-duration: 0.5s;
@@ -110,6 +111,7 @@
 
 .blueSquare {
     position: absolute;
+    z-index: 3;
     display: flex;
     align-items: flex-end;
     background-color: var(--blue);
@@ -119,7 +121,6 @@
     height: 50.5vh;
     top: 12vh;
     left: 0;
-    z-index: 0;
 }
 
 .name {
@@ -145,6 +146,8 @@
 .arrowSVG {
     width: 64px;
     stroke-linecap: round;
+    transform: scale(0.8);
+    z-index: 10;
 }
 
 .arrowDown {
@@ -155,17 +158,17 @@
 
     &.secondArrow {
         margin-top: -10px;
-        stroke: var(--yellow);
+        stroke: var(--blue);
         animation-delay: 0.7s;
-        stroke-width: 2px;
+        stroke-width: 1px;
         animation: secondArrow 2s infinite;
     }
 
     &.thirdArrow {
         margin-top: -20px;
-        stroke: var(--red);
+        stroke: var(--blue);
         animation-delay: 1.4s;
-        stroke-width: 3px;
+        stroke-width: 1px;
         animation: thirdArrow 2s infinite;
     }
 }
@@ -188,15 +191,15 @@
 
 @media screen and (max-width: 600px) {
     .name {
-        font-size: 9vh;
+        font-size: 15vw;
         user-select: none;
         width: 23vw;
         margin: 0;
         margin-top: -3vh;
-        writing-mode: vertical-rl;
-        text-orientation: upright;
-        line-height: 1.3;
-        letter-spacing: -3vh;
+        line-height: 1;
+        text-align: center;
+        width: 1em;
+        word-wrap: break-word;
         align-self: center;
     }
 
@@ -221,11 +224,12 @@
     .redSquare {
         height: 67vw;
         width: 49vw;
+        z-index: 2;
     }
 
     .yellowSquare {
         top: 50vh;
-        z-index: -1;
+        z-index: 1;
         width: 40vw;
         height: 32vh;
     }
