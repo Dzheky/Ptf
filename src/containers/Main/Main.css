@@ -48,28 +48,14 @@
     }
 }
 
-@keyframes firstArrow {
-    0% {opacity:0}
-    20% {opacity:1}
-    40% {opacity:0}
-    80% {opacity:0}
-    100% {opacity:0}
-}
+@keyframes show {
+    from {
+        opacity: 0;
+    }
 
-@keyframes secondArrow {
-    0% {opacity:0}
-    20% {opacity:0}
-    40% {opacity:1}
-    80% {opacity:0}
-    100% {opacity:0}
-}
-
-@keyframes thirdArrow {
-     0% {opacity:0}
-    20% {opacity:0}
-    40% {opacity:0}
-    80% {opacity:1}
-    100% {opacity:0}
+    to {
+        opacity: 1;
+    }
 }
 
 .App {
@@ -140,7 +126,12 @@
     margin-left: -0.3vw;
 
     font-family: 'Poppins', sans-serif;
+    opacity: 0;
     font-size: 5vw;
+    animation-name: show;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+    animation-duration: 0.5s;
     font-weight: 900;
 
     color: var(--yellow);
@@ -148,11 +139,15 @@
 
 .name {
     font-family: 'Poppins', sans-serif;
+    opacity: 0;
     margin-bottom: 8vh;
     margin-left: 10vw;
+    animation-name: show;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+    animation-duration: 0.5s;
     font-size: 5vw;
     font-weight: 900;
-    z-index: 1;
 
     color: #FCAF32;
 }
@@ -162,38 +157,18 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 86px;
+    height: 50px;
     bottom: 0;
 }
 
-.arrowSVG {
-    width: 64px;
-    stroke-linecap: round;
-    transform: scale(0.8);
-    z-index: 10;
-}
-
 .arrowDown {
-    stroke: var(--blue);
-	fill: transparent;
-	stroke-width: 1px;	
-	animation: firstArrow 2s infinite;
-
-    &.secondArrow {
-        margin-top: -10px;
-        stroke: var(--blue);
-        animation-delay: 0.7s;
-        stroke-width: 1px;
-        animation: secondArrow 2s infinite;
-    }
-
-    &.thirdArrow {
-        margin-top: -20px;
-        stroke: var(--blue);
-        animation-delay: 1.4s;
-        stroke-width: 1px;
-        animation: thirdArrow 2s infinite;
-    }
+    width: 50px;
+    z-index: 4;
+    opacity: 0;
+    animation-name: show;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+    animation-duration: 0.5s;
 }
 
 @media screen and (max-width: 900px) and (min-width: 601px) {

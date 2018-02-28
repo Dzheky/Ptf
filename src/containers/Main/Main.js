@@ -1,10 +1,11 @@
 // @flow
 import React, { Component } from 'react'
-import classnames from 'classnames/bind'
+// import classnames from 'classnames/bind'
 import { Link, History } from 'react-router-dom'
+import arrow from './Arrow_Down.png'
 import styles from './Main.css'
 
-const cx = classnames.bind(styles)
+// const cx = classnames.bind(styles)
 const BLUE_ALPHA = 0.1
 const RED_ALPHA = 0.2
 const YELLOW_ALPHA = 0.3
@@ -89,18 +90,14 @@ class Main extends Component<MainPropsType, *> {
 						EVGENY
 					</div>
 				</div>
-				<div className={styles.redSquare} style={{ top: `${35 + (RED_ALPHA * beta)}vh` }}>
+				<div className={styles.redSquare} style={{ top: `${30 + (RED_ALPHA * beta)}vh` }}>
 					<div className={styles.lastName}>
 						KLIMENCHENKO
 					</div>
 				</div>
 				<div className={styles.yellowSquare} style={{ top: `${50 + (YELLOW_ALPHA * beta)}vh` }} />
 				<Link to="/info" className={styles.arrowDownContainer}>
-					<svg className={styles.arrowSVG}>
-						<path className={cx('arrowDown', 'firstArrow')} d="M2 2 L32 34 L62 2" />
-						<path className={cx('arrowDown', 'secondArrow')} d="M2 22 L32 54 L62 22" />
-						<path className={cx('arrowDown', 'thirdArrow')} d="M2 42 L32 74 L62 42" />
-					</svg>
+					<img src={arrow} className={styles.arrowDown} alt="scroll down arrow" />
 				</Link>
 			</div>
 		)
