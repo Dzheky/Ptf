@@ -1,33 +1,50 @@
 @keyframes blueSquare {
-    from {
-        opacity: 0;
-        transform: translateX(-20vw);
+    0% {
+        transform: translateY(150vh) scaleY(3);
     }
-    to {
-        opacity: 1;
-        transform: translateX(0);
+    70% {
+        transform: translateY(0) scaleY(3);
+    }
+    100% {
+        transform: translateY(0) scaleY(1);
     }
 }
 
 @keyframes yellowSquare {
-    from {
-        opacity: 0;
-        transform: translateY(20vh);
+    0% {
+        transform: translateX(-15vw) translateY(-52.5vh);
+        width: 100vw;
+        height: 110vh;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    70% {
+        transform: translateX(-15vw) translateY(-52.5vh);
+        width: 100vw;
+        height: 110vh;
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+        width: 35vw;
+        height: 30vh;
     }
 }
 
 @keyframes redSquare {
-    from {
-        opacity: 0;
-        transform: translateX(40vw);
+    0% {
+        transform: translateX(100vw);
+        height: 100vh;
+        width: 100vw;
     }
-    to {
-        opacity: 1;
+
+    60% {
         transform: translateX(0);
+        height: 100vh;
+        width: 100vw;
+    }
+
+    100% {
+        transform: translateX(0);
+        width: 45vw;
+        height: 35vh; 
     }
 }
 
@@ -71,6 +88,7 @@
   }
   
 .redSquare {
+    transform: transale3d(0,0,0); 
     position: absolute;
     display: flex;
     align-items: center;
@@ -82,11 +100,13 @@
     height: 35vh;
 
     animation-name: redSquare;
+    animation-timing-function: ease-in-out;
     animation-duration: 0.5s;
     background-color: var(--red);
 }
 
 .yellowSquare {
+    transform: transale3d(0,0,0); 
     position: absolute;
     top: 52.5vh;
     left: 15vw;
@@ -95,8 +115,25 @@
     height: 30vh;
 
     animation-name: yellowSquare;
+    animation-timing-function: ease-in-out;
     animation-duration: 0.5s;
     background-color: var(--yellow);
+}
+
+.blueSquare {
+    transform: transale3d(0,0,0); 
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--blue);
+    animation-name: blueSquare;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    width: 30vw;
+    height: 50.5vh;
+    top: 12vh;
+    left: 0;
 }
 
 .lastName {
@@ -107,20 +144,6 @@
     font-weight: 900;
 
     color: var(--yellow);
-}
-
-.blueSquare {
-    position: absolute;
-    z-index: 3;
-    display: flex;
-    align-items: flex-end;
-    background-color: var(--blue);
-    animation-name: blueSquare;
-    animation-duration: 0.5s;
-    width: 30vw;
-    height: 50.5vh;
-    top: 12vh;
-    left: 0;
 }
 
 .name {

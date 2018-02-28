@@ -15,6 +15,10 @@ type MainPropsType = {
 	history: History,
 }
 
+type OrientationEventType = {
+	beta?: number,
+}
+
 class Main extends Component<MainPropsType, *> {
 	state = {
 		beta: 0,
@@ -43,7 +47,8 @@ class Main extends Component<MainPropsType, *> {
 		this.start = e.changedTouches[0].clientY
 	}
 
-	handleOrientation = (e: Event) => {
+	handleOrientation = (e: OrientationEventType) => {
+		/*:: if (e.beta) {*/
 		let y = e.beta === null ? 0 : e.beta - 25
 
 		if (y > MAX || y < -MAX) {
@@ -53,6 +58,7 @@ class Main extends Component<MainPropsType, *> {
 		this.setState({
 			beta: y,
 		})
+		/*:: }*/
 	}
 
 	endTouch = (e: TouchEvent) => {
