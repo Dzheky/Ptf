@@ -1,11 +1,20 @@
 // @flow
 import React from 'react'
+import type { History } from 'react-router-dom'
+
+import Container from '../Container/Container'
 import './Info.css'
 
-const Info = (): React$Element<*> => (
-	<div className="infocontainer">
-		<div className="title">INFO ABOUT ME</div>
-	</div>
+type InfoPropsType = {
+	history: History,
+}
+
+const Info = (props: InfoPropsType): React$Element<*> => (
+	<Container from="/" history={props.history}>
+		<div className="infocontainer">
+			<div className="title">INFO ABOUT ME</div>
+		</div>
+	</Container>
 )
 
 export default Info
