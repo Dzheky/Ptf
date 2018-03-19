@@ -74,13 +74,14 @@
   }
   
 .redSquare {
-    transform: transale3d(0,0,0); 
+    transform-style: preserve-3d;
     position: absolute;
     display: flex;
     align-items: center;
     left: 30vw;
     top: 35vh;
     z-index: 2;
+    transition: top 0.01s linear;
 
     width: 45vw;
     height: 35vh;
@@ -92,7 +93,6 @@
 }
 
 .yellowSquare {
-    transform: transale3d(0,0,0); 
     position: absolute;
     top: 52.5vh;
     left: 15vw;
@@ -107,7 +107,6 @@
 }
 
 .blueSquare {
-    transform: transale3d(0,0,0); 
     position: absolute;
     z-index: 3;
     display: flex;
