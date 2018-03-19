@@ -30,7 +30,7 @@ const animationFinish = {
 	height: 0,
 }
 
-const App = (): React$Element<*> => (
+const App = (): Router => (
 	<Router history={history}>
 		<div className={styles.container}>
 			<AnimatedRoute

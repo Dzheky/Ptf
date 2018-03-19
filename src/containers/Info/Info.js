@@ -12,7 +12,7 @@ type InfoPropsType = {
 const Info = (props: InfoPropsType): React$Element<*> => (
 	<Container from="/" history={props.history}>
 		<div className="infocontainer">
-			<div className="title">INFO ABOUT ME</div>
+			<div className="title">UNDER DEVELOPMENT</div>
 		</div>
 	</Container>
 )
